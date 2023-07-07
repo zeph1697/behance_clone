@@ -57,37 +57,34 @@ const ProfileMenu = ({ session }: { session: SessionInterface }) => {
               <p className="font-semibold text-center">{session?.user?.name}</p>
             </div>
 
-            <div className="flex flex-col gap-3 mt-7 pt-5 border-t border-nav-border items-start w-full">
+            <div className="flex flex-col gap-0 mt-7 pt-5 border-t border-nav-border items-start w-full">
               <Menu.Item>
                 <Link
                   href={`/profile/${session?.user?.id}`}
-                  className="text-sm"
+                  className="text-sm p-2 w-full rounded-md hover:bg-light-white-300"
                 >
                   Work Preferences
                 </Link>
               </Menu.Item>
               <Menu.Item>
-                <Link
-                  href={`/profile/${session?.user?.id}`}
-                  className="text-sm"
-                >
+                <div className="text-sm opacity-50 p-2 w-full rounded-md hover:bg-light-white-300">
                   Settings
-                </Link>
+                </div>
               </Menu.Item>
               <Menu.Item>
                 <Link
                   href={`/profile/${session?.user?.id}`}
-                  className="text-sm"
+                  className="text-sm p-2 w-full rounded-md hover:bg-light-white-300"
                 >
                   Profile
                 </Link>
               </Menu.Item>
             </div>
-            <div className="w-full flexStart border-t border-nav-border mt-5 pt-5">
+            <div className="w-full flexStart border-t border-nav-border mt-3 pt-3">
               <Menu.Item>
                 <button
                   type="button"
-                  className="text-sm"
+                  className="text-sm text-start p-2 w-full rounded-md hover:bg-light-white-300"
                   onClick={() => signOut()}
                 >
                   Sign out

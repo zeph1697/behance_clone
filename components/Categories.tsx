@@ -27,7 +27,7 @@ const Categories = () => {
               category === filter
                 ? "bg-light-white-300 font-medium"
                 : "font-normal"
-            } px-4 py-3 rounded-lg capitalize whitespace-nowrap`}
+            } px-4 py-3 rounded-md hover:text-primary-blue hover:bg-light-white-100 capitalize whitespace-nowrap`}
           >
             {filter}
           </button>

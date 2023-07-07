@@ -19,7 +19,11 @@ const Navbar = async () => {
         </Link>
         <ul className="xl:flex hidden text-small gap-7">
           {NavLinks.map((link) => (
-            <Link href={link.href} key={link.text}>
+            <Link
+              href={link.href}
+              key={link.text}
+              className="hover:text-primary-blue-variant"
+            >
               {link.text}
             </Link>
           ))}
@@ -44,7 +48,13 @@ const Navbar = async () => {
               target="_blank"
               className="hover:opacity-75"
             >
-              <Image src="/adobe-logo.svg" width={72} height={20} alt="adobe" />
+              <Image
+                src="/adobe-logo.svg"
+                width={72}
+                height={20}
+                alt="adobe"
+                className="hidden sm:flex"
+              />
             </Link>
           </>
         ) : (

@@ -11,7 +11,7 @@
 }
 
 body {
-  font-family: Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .flexCenter {
@@ -63,12 +63,12 @@ body {
 
 /* Home */
 .projects-grid {
-  @apply grid xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10 mt-10 w-full;
+  @apply grid xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 mt-10 w-full;
 }
 
 /* Project Actions */
 .edit-action_btn {
-  @apply p-3 text-gray-100 bg-light-white-400 rounded-lg text-sm font-medium;
+  @apply p-3 text-gray-100 bg-light-white-400 hover:bg-light-white-300 rounded-lg text-sm font-medium;
 }
 
 .delete-action_btn {
@@ -126,6 +126,15 @@ body {
 
 .modal_wrapper {
   @apply flex justify-start items-center flex-col absolute h-[90%] w-full bottom-0 bg-white rounded-t-3xl lg:px-40 px-8 pt-14 pb-72 overflow-auto;
+}
+
+/* Popup */
+.popup {
+  @apply fixed z-10 left-0 right-0 top-0 bottom-0 mx-auto bg-black/50;
+}
+
+.popup_wrapper {
+  @apply justify-start items-center flex-col h-max lg:w-[50%] lg:left-[25%] w-[90%] left-[50%] bg-white rounded-lg lg:px-12 p-8 overflow-auto;
 }
 
 /* Navbar */

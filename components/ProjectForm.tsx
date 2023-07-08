@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import React, { ChangeEvent, FormEvent, useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import FormField from "./FormField";
@@ -19,6 +19,10 @@ type Props = {
 
 const ProjectForm = ({ type, session, project }: Props) => {
   const router = useRouter();
+
+  const onDismiss = useCallback(() => {
+    router.back();
+  }, [router]);
 
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [form, setForm] = useState<FormState>({
@@ -93,7 +97,7 @@ const ProjectForm = ({ type, session, project }: Props) => {
       <div className="flexStart form_image-container">
         <label htmlFor="poster" className="flexCenter form_image-label">
           {!form.image &&
-            "Choose a poster for your project (828 x 628 pixels recommended) "}
+            "Choose a poster for your project (1600 x 1200 pixels recommended) "}
         </label>
         <input
           id="image"
@@ -116,14 +120,14 @@ const ProjectForm = ({ type, session, project }: Props) => {
       <FormField
         title="Title"
         state={form.title}
-        placeholder="Flexibble"
+        placeholder="Give your project a title"
         setState={(value) => handleStateChange("title", value)}
       />
 
       <FormField
         title="Description"
         state={form.description}
-        placeholder="Showcase and discover remarkable developer projects."
+        placeholder="Showcase and discover remarkable developer projects"
         isTextArea
         setState={(value) => handleStateChange("description", value)}
       />
@@ -132,7 +136,7 @@ const ProjectForm = ({ type, session, project }: Props) => {
         type="url"
         title="Website URL"
         state={form.liveSiteUrl}
-        placeholder="https://jsmastery.pro"
+        placeholder="https://your-site.domain"
         setState={(value) => handleStateChange("liveSiteUrl", value)}
       />
 
@@ -140,7 +144,7 @@ const ProjectForm = ({ type, session, project }: Props) => {
         type="url"
         title="GitHub URL"
         state={form.githubUrl}
-        placeholder="https://github.com/adrianhajdin"
+        placeholder="https://github.com/your-github"
         setState={(value) => handleStateChange("githubUrl", value)}
       />
 
@@ -151,14 +155,22 @@ const ProjectForm = ({ type, session, project }: Props) => {
         setState={(value) => handleStateChange("category", value)}
       />
 
-      <div className="flexStart w-full">
+      <div className="flex justify-end w-full gap-4">
+        <Button
+          title="Cancel"
+          textColor="text-black text-xl font-bold py-2.5"
+          bgColor="bg-white hover:bg-light-white-300"
+          handleClick={onDismiss}
+        />
+
         <Button
           title={
             submitting
-              ? `${type === "create" ? "Creating" : "Editing"}`
+              ? `${type === "create" ? "Creating..." : "Editing..."}`
               : `${type === "create" ? "Create" : "Edit"}`
           }
           type="submit"
+          textColor="text-white text-xl font-bold py-2.5"
           leftIcon={submitting ? "" : "/plus.svg"}
           submitting={submitting}
         />

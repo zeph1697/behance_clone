@@ -18,9 +18,9 @@ const ProjectCard = ({ id, image, title, name, avatarUrl, userId }: Props) => {
   const [randomViews, setRandomViews] = useState("");
 
   useEffect(() => {
-    setRandomLikes(Math.floor(Math.random() * 10000));
+    setRandomLikes(Math.floor(Math.random() * 1000));
     setRandomViews(
-      String((Math.floor(Math.random() * 10000) / 1000).toFixed(1) + "k")
+      String((Math.floor(Math.random() * 1000) / 100).toFixed(1) + "k")
     );
   }, []);
 
@@ -34,7 +34,7 @@ const ProjectCard = ({ id, image, title, name, avatarUrl, userId }: Props) => {
           src={image}
           width={414}
           height={314}
-          className="w-full h-full object-cover rounded-md"
+          className="w-full h-full rounded-md object-cover"
           alt="project image"
         />
 
